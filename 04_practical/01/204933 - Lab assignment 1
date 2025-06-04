@@ -1,0 +1,57 @@
+def reverseList(list1):
+    return list1[::-1]
+
+list1 = [57,58,61,63,65]
+
+print("Reversed List:", reverseList(list1))
+
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+
+    def peek(self):
+        if not self.is_empty():
+            return self.stack[-1]
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+s = Stack()
+s.push(57)
+s.push(58)
+s.push(61)
+s.push(63)
+s.push(65)
+print("Peek:", s.peek())
+print("Pop:", s.pop())
+print("Is Empty:", s.is_empty())
+
+def Recursion(n):
+    if n < 0:
+        return
+    print(n)
+    Recursion(n - 1)
+    Recursion(10)
+
+def tailRecursionSum(n, result=0):
+    if n == 0:
+        return result
+    return tailRecursionSum(n - 1, result + n)
+print("Sum: ", tailRecursionSum(3))
+
+def countCharacterFrequency(shortText):
+    characterFrequency = {}
+    for char in shortText:
+        if char != ' ': 
+            characterFrequency[char] = characterFrequency.get(char, 0) + 1
+    return characterFrequency
+
+shortText = "data structures and algorithms"
+print("Character Frequency: ", countCharacterFrequency(shortText))
